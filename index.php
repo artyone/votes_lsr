@@ -29,15 +29,6 @@ if ($userID && getUserInAnswer($connection, $userID)) {
         }
 
         $pageContent = includeTemplate($pages['thanks'], []);
-        /*$layoutContent = includeTemplate($pages['header'],
-            [
-                'md5email' => $md5email,
-                'language' => $language,
-                'pageContent' => $pageContent
-            ]
-        );
-        print $layoutContent;
-        die();*/
     }
 
     else {
