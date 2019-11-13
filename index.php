@@ -3,21 +3,22 @@
 require_once 'bootstrap.php';
 $connection = connection($config['dbWork']);
 $md5email = $_GET['code'] ?? null;
-$language = $_GET['lang'] ?? 'ru';
+$language = $_GET['lang'] ?? null;
 $userID = getUserByMd5($connection, $md5email);
-if ($language == 'ru') {
-    $pages = [
-        'header' => 'headerRu.php',
-        'thanks' => 'thanksRu.php',
-        'error' => 'errorRu.php',
-        'votes' => 'votesRu.php'
-    ];
-} else {
+if ($language == 'eng') {
     $pages = [
         'header' => 'headerEng.php',
         'thanks' => 'thanksEng.php',
         'error' => 'errorEng.php',
         'votes' => 'votesEng.php'
+    ];
+} else {
+    $language = 'ru';
+    $pages = [
+        'header' => 'headerRu.php',
+        'thanks' => 'thanksRu.php',
+        'error' => 'errorRu.php',
+        'votes' => 'votesRu.php'
     ];
 }
 
