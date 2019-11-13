@@ -118,7 +118,7 @@ function getAllQuestions(mysqli $connection, $language) : array
  * @param $answer ответ пользователя
  * @return int|null возвращает результат записи
  */
-function insertAnswers(mysqli $connection, $userID, $qid, $answer) : ?int
+function insertAnswers(mysqli $connection, int $userID, int $qid, string $answer) : ?int
 {
 
     $sqlQuery = "INSERT INTO answers (uid, qid, answer) VALUES (?,?,?)";
@@ -133,7 +133,7 @@ function insertAnswers(mysqli $connection, $userID, $qid, $answer) : ?int
  * @param $userID id пользователя
  * @return bool возвращает есть ли пользователь в ответах или нет
  */
-function getUserInAnswer(mysqli $connection, $userID) : bool
+function getUserInAnswer(mysqli $connection, int $userID) : bool
 {
     $sqlQuery = "SELECT id FROM answers WHERE uid = (?)";
     $stmt = db_get_prepare_stmt($connection, $sqlQuery, [$userID]);

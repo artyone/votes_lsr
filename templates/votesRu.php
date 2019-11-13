@@ -31,7 +31,7 @@
     <p><i>Оцените уровень существенности:</i></p>
     <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" id="<?= $id . 1 ?>"
-               name="<?= $id ?>" value="4">
+               name="<?= $id ?>" value="4" checked>
         <label class="form-check-label" for="<?= $id . 1 ?>">Высокий</label>
 
         <input class="form-check-input" type="radio" id="<?= $id . 2 ?>"

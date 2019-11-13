@@ -29,7 +29,7 @@ if ($userID && getUserInAnswer($connection, $userID)) {
         }
 
         $pageContent = includeTemplate($pages['thanks'], []);
-        $layoutContent = includeTemplate($pages['header'],
+        /*$layoutContent = includeTemplate($pages['header'],
             [
                 'md5email' => $md5email,
                 'language' => $language,
@@ -37,7 +37,7 @@ if ($userID && getUserInAnswer($connection, $userID)) {
             ]
         );
         print $layoutContent;
-        die();
+        die();*/
     }
 
     else {

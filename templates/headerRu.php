@@ -31,7 +31,7 @@
     <?= $pageContent ?>
 
     <?php if ($pageContent <> '<p><b>Вы уже прошли данный опрос или ссылка неверная</b></p>' &&
-        $pageContent <> '<p><b>Спасибо за участие в опросе! Все ваши данные сохранены!</b></p>') { ?>
+        $pageContent <> '<p><b>Спасибо за сотрудничество.</b></p>') { ?>
         <div class="form-group text-center">
             <br>
             <button type="submit" class="btn btn-primary">Отправить</button>
@@ -40,7 +40,7 @@
 </form>
 </div>
 
-<script src="./assets/js/main.js"></script>
+<script src="../assets/js/main.js"></script>
 
 </body>
 

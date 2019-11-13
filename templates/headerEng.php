@@ -31,7 +31,7 @@
     <?= $pageContent ?>
 
     <?php if ($pageContent <> '<p><b>You have already passed this survey or the link is incorrect</b></p>' &&
-        $pageContent <> '<p><b>Thank you for participating in the survey! All your data is saved!</b></p>') { ?>
+        $pageContent <> '<p><b>Thank you for your kind cooperation.</b></p>') { ?>
         <div class="form-group text-center">
             <br>
             <button type="submit" class="btn btn-primary">Send</button>
@@ -40,7 +40,7 @@
 </form>
 </div>
 
-<script src="./assets/js/main.js"></script>
+<script src="../assets/js/main.js"></script>
 
 </body>
 
