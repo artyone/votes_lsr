@@ -1,0 +1,124 @@
+h2 {
+    padding-top: 2rem;
+}
+
+h3 {
+    position: relative;
+}
+
+.abbreviate {
+    position: absolute;
+    right: 0;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.abbreviate span {
+    color: #DF1E42;
+}
+
+.form-group {
+    border-bottom: 1px solid rgba(104,144,187,.3);
+    padding-bottom: 1rem;
+}
+
+.form-group:last-child {
+    border-bottom: none;
+}
+
+.form-group.has-error em, .form-group.has-error i {
+    color: #DF1E42;
+}
+
+.form-group.has-error .form-check-label {
+    border: 1px solid #DF1E42;
+}
+
+.form-check-inline {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.form-check-input {
+    display: none;
+}
+
+.form-check-label {
+    display: block;
+    transition: all .3s ease-in-out;
+    padding: .5rem 1.5rem;
+    font-weight: 300;
+    color: #000;
+    line-height: 1.375rem;
+    background-color: #fff;
+    border: 1px solid #e1edf6;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+}
+
+.form-check-label:hover {
+    box-shadow: 0 4px 8px rgba(104,144,187,.3);
+    cursor: pointer;
+}
+
+.form-check-input:checked + .form-check-label {
+    background-color: #666;
+    color: #fff;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+    background-color: #DF1E42 !important;
+    border-color: #DF1E42 !important;
+    padding: .5rem 1.5rem;
+    transition: all .3s ease-in-out;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 4px 8px rgba(104,144,187,.3);
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(223, 30, 66, 0.5) !important;
+}
+
+.form-error {
+    padding-top: 2rem;
+    text-align: center;
+    color: #DF1E42;
+    border-bottom: 1px solid rgba(104,144,187,.3);
+    padding-bottom: 1rem;
+}
+
+textarea.form-control {
+    border: 1px solid #e1edf6 !important;
+    outline: none;
+    resize: none;
+}
+
+textarea.form-control:focus {
+    box-shadow: 0 4px 8px rgba(104,144,187,.3);
+}
+
+/* Медиа-запросы */
+@media (max-width: 575px) {
+
+    .form-check-inline {
+        display: block;
+    }
+
+    .abbreviate {
+        position: static;
+        display: block;
+        text-align: right;
+    }
+
+    .text-justify {
+        text-align: left !important;
+    }
+}
+
+.head3 {
+    color: #DF1E42;
+}
