@@ -5,6 +5,7 @@ $connection = connection($config['dbWork']);
 $md5email = $_GET['code'] ?? null;
 $language = $_GET['lang'] ?? null;
 $userID = getUserByMd5($connection, $md5email);
+$checkPost = true;
 if ($language == 'eng') {
     $pages = [
         'header' => 'headerEng.php',
@@ -23,16 +24,18 @@ if ($language == 'eng') {
 }
 
 if ($userID && getUserInAnswer($connection, $userID)) {
+    $answers = $_POST ?? null;
 
-    if (!empty($_POST) && count($_POST) == 22) {
-        foreach ($_POST as $key => $value) {
-            insertAnswers($connection, $userID, $key, $value);
+    if (!empty($answers) && $checkPost = checkAnswers($answers)) {
+        foreach ($answers as $qid => $answer) {
+            insertAnswers($connection, $userID, (int)substr($qid, 1), $answer);
         }
-
         $pageContent = includeTemplate($pages['thanks'], []);
+
     }
 
     else {
+
         $questions = getAllQuestions($connection, $language);
         $pageContent = '';
         $oldQuestion = '';
@@ -55,13 +58,12 @@ $layoutContent = includeTemplate($pages['header'],
     [
         'md5email' => $md5email,
         'language' => $language,
-        'pageContent' => $pageContent
+        'pageContent' => $pageContent,
+        'checkPost' => $checkPost
     ]
 );
 
 print $layoutContent;
-
-
 
 
 //UPDATE users SET link = CONCAT('http://esg.lsrgroup.ru/?code=', HASH,'&lang=', LANGUAGE );

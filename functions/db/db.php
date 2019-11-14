@@ -130,7 +130,7 @@ function insertAnswers(mysqli $connection, int $userID, int $qid, string $answer
 
 /**
  * @param mysqli $connection результат выполнения функции подключения к БД
- * @param $userID id пользователя
+ * @param $userID int id пользователя
  * @return bool возвращает есть ли пользователь в ответах или нет
  */
 function getUserInAnswer(mysqli $connection, int $userID) : bool

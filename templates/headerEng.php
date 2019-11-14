@@ -25,7 +25,9 @@
             Evaluation options: high, moderate, low, non-material topic.
         </p>
     </div>
-
+    <?php if (!$checkPost) { ?>
+        <p style="color:#DF1E42"><b>The answer choices are not correct. Please try again. </b></p>
+    <?php } ?>
 <form name="form" action="/?<?= http_build_query(['code'=> $md5email, 'lang' => $language]) ?>" method="post" id="form-votes">
 
     <?= $pageContent ?>

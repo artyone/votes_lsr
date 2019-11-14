@@ -31,24 +31,23 @@
     <p><i>Оцените уровень существенности:</i></p>
     <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" id="<?= $id . 1 ?>"
-               name="<?= $id ?>" value="4">
+               name="<?='r' . $id ?>" value="4">
         <label class="form-check-label" for="<?= $id . 1 ?>">Высокий</label>
 
         <input class="form-check-input" type="radio" id="<?= $id . 2 ?>"
-               name="<?= $id ?>" value="3">
+               name="<?='r' . $id ?>" value="3">
         <label class="form-check-label" for="<?= $id . 2 ?>">Средний</label>
 
         <input class="form-check-input" type="radio" id="<?= $id . 3 ?>"
-               name="<?= $id ?>" value="2">
+               name="<?='r' . $id ?>" value="2">
         <label class="form-check-label" for="<?= $id . 3 ?>">Низкий</label>
 
         <input class="form-check-input" type="radio" id="<?= $id . 4 ?>"
-               name="<?= $id ?>" value="1">
+               name="<?='r' . $id ?>" value="1">
         <label class="form-check-label" for="<?= $id . 4 ?>">Несущественная тема</label>
     </div>
     <?php } else { ?>
         <p><strong><?= $question ?></strong></p>
-        <textarea class="form-control" rows="5" id="<?= $id . 1 ?>" name="<?= $id ?>"></textarea>
+        <textarea class="form-control" rows="5" id="<?= $id . 1 ?>" name="<?='t' .  $id ?>"></textarea>
     <?php } ?>
 </div>
-

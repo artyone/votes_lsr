@@ -25,7 +25,9 @@
             Варианты оценки: высокий, средний и низкий уровень существенности, несущественная тема.
         </p>
     </div>
-
+    <?php if (!$checkPost) { ?>
+        <p style="color:#DF1E42"><b>Некорректно выбраны варианты ответов. Пожалуйста, повторите попытку. </b></p>
+    <?php } ?>
 <form name="form" action="/?<?= http_build_query(['code'=> $md5email, 'lang' => $language]) ?>" method="post" id="form-votes">
 
     <?= $pageContent ?>
