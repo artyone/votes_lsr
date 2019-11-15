@@ -3,6 +3,7 @@ let form  = document.getElementById('form-votes');
 form.addEventListener("submit", function (e) {
     if (invalidForm()) {
         alert('Необходимо заполнить все поля');
+        scrollToError();
         e.preventDefault();
     }
 });
@@ -37,6 +38,16 @@ function invalidForm() {
     }
 
     return flagInvalid;
+}
+
+
+function scrollToError() {
+    let errorBlocks = document.getElementsByClassName('has-error');
+    let coordTop = errorBlocks[0].offsetTop;
+    window.scrollTo({
+        top: coordTop,
+        behavior: 'smooth'
+    });
 }
 
 

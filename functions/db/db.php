@@ -92,10 +92,10 @@ function getUserByMd5(mysqli $connection, ?string $md5email) : ?int
 /**
  * Функция получения всех вопросов, тем и айди из базы
  * @param mysqli $connection результат выполнения функции подключения к БД
- * @param $language язык пользователя
+ * @param string $language язык пользователя
  * @return array возвращает массив вопросов
  */
-function getAllQuestions(mysqli $connection, $language) : array
+function getAllQuestions(mysqli $connection, string $language) : array
 {
     $sqlQuery = "SELECT id, tome, name_tome_". $language ." as name_tome, number, question_".$language." as question, opisanie_" .$language." as opisanie 
     FROM (SELECT * FROM (SELECT * FROM questions ORDER BY `number` ASC) AS a ORDER BY `tome` ASC) as b";
@@ -113,9 +113,9 @@ function getAllQuestions(mysqli $connection, $language) : array
 //записывает результаты ответов из $_POST
 /**
  * @param mysqli $connection результат выполнения функции подключения к БД
- * @param $userID id пользователя
- * @param $qid id вопроса
- * @param $answer ответ пользователя
+ * @param int $userID id пользователя
+ * @param int $qid id вопроса
+ * @param string $answer ответ пользователя
  * @return int|null возвращает результат записи
  */
 function insertAnswers(mysqli $connection, int $userID, int $qid, string $answer) : ?int
@@ -130,7 +130,7 @@ function insertAnswers(mysqli $connection, int $userID, int $qid, string $answer
 
 /**
  * @param mysqli $connection результат выполнения функции подключения к БД
- * @param $userID int id пользователя
+ * @param int $userID id пользователя
  * @return bool возвращает есть ли пользователь в ответах или нет
  */
 function getUserInAnswer(mysqli $connection, int $userID) : bool
@@ -144,4 +144,24 @@ function getUserInAnswer(mysqli $connection, int $userID) : bool
         return true;
     }
     return false;
+}
+
+
+/**
+ * Функция получения всех пользователей из базы
+ * @param mysqli $connection
+ * @return array возвращает массив всех пользователей
+ */
+function getUser(mysqli $connection) : array
+{
+    $sqlQuery = "SELECT email, language, link FROM users";
+    $stmt = db_get_prepare_stmt($connection, $sqlQuery, []);
+    mysqli_stmt_execute($stmt);
+    $resource = mysqli_stmt_get_result($stmt);
+    $result = mysqli_fetch_all($resource, MYSQLI_ASSOC);
+
+    if (!$result) {
+        return [];
+    }
+    return $result;
 }
