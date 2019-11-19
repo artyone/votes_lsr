@@ -129,18 +129,19 @@ function insertAnswers(mysqli $connection, int $userID, int $qid, string $answer
 }
 
 /**
+ * Функция проверки наличия пользователя в БД и его ответов (ответов по ссылке должно быть не больше 5)
  * @param mysqli $connection результат выполнения функции подключения к БД
  * @param int $userID id пользователя
  * @return bool возвращает есть ли пользователь в ответах или нет
  */
 function getUserInAnswer(mysqli $connection, int $userID) : bool
 {
-    $sqlQuery = "SELECT id FROM answers WHERE uid = (?)";
+    $sqlQuery = "SELECT count(id) as count FROM answers WHERE uid = (?) and qid = '1'";
     $stmt = db_get_prepare_stmt($connection, $sqlQuery, [$userID]);
     mysqli_stmt_execute($stmt);
     $resource = mysqli_stmt_get_result($stmt);
     $result = mysqli_fetch_assoc($resource);
-    if (empty($result)) {
+    if (empty($result) || ($result['count'] < 5)) {
         return true;
     }
     return false;
@@ -154,7 +155,7 @@ function getUserInAnswer(mysqli $connection, int $userID) : bool
  */
 function getUser(mysqli $connection) : array
 {
-    $sqlQuery = "SELECT email, language, link FROM users";
+    $sqlQuery = "SELECT email, language, link, name FROM users";
     $stmt = db_get_prepare_stmt($connection, $sqlQuery, []);
     mysqli_stmt_execute($stmt);
     $resource = mysqli_stmt_get_result($stmt);

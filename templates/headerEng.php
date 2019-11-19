@@ -20,8 +20,8 @@
     <div class="text-justify">
         <p>
             <em>Materiality assessment is carried out in accordance with the recommendations of international Sustainability Reporting Standards of the Global
-                Reporting Initiative (GRI).</em><br><br>
-            Below is a list of topics based on our materiality assessment, as well as examples of indicators.<br>
+                Reporting Initiative (GRI).</em>
+            Below is a list of topics based on our materiality assessment, as well as examples of indicators.<br><br>
             Which topics do you think have the most significant effect on LSR Group’s performance<sup><a href="#hint2" class="hint__link">[2]</a></sup>?<br><br>
             Evaluation options: high, moderate, low, non-material topic.
         </p>
